@@ -9,3 +9,33 @@ def makeGrid(n):
 
 print(makeGrid(3))
 
+def makeGrid(n):
+    player1options(n)
+    player2options(n)
+    for row in range(n):
+        for col in range(n):
+            print(0, end = " ")
+        print() # prints a newline after each row is filled w/ col
+
+print(makeGrid(3))
+
+def player1options(n):
+    global option1
+    option1 = []
+    for row in range(n):
+        ins = []
+        for col in range(n):
+            ins.append(0)
+        option1.append(ins)
+
+def player2options(n):
+    global option2
+    option2 = []
+    for row in range(n):
+        ins = []
+        for col in range(n):
+            ins.append(0)
+        option2.append(ins)
+
+def playGame():
+    while 
