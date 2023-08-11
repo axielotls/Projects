@@ -4,21 +4,29 @@
 
 
 def makeGrid(n):
-    for row in range(n):
-        for col in range(n):
-            print(0, end = " ")
-        print() # prints a newline after each row is filled w/ col
-    player1options(n)
-    player2options(n)
+    global length
+    global tally   # keep track on the same grid you play on
+    tally = []
+    length = n*n
+    if n > 0:
+        for row in range(n):
+            ins = []
+            for col in range(n):
+                print(0, end = " ")
+                ins.append(0)
+                
+            tally.append(ins)
+            print() # prints a newline after each row is filled w/ col
+        
 
-def player1options(n):
-    global option1
-    option1 = []
-    for row in range(n):
-        ins = []
-        for col in range(n):
-            ins.append(0)
-        option1.append(ins)
+# def totalOptions(n):
+    #global options
+    #options = []
+    #for row in range(n):
+        #ins = []
+        #for col in range(n):
+            #ins.append(0)
+        #options.append(ins)
     # for testing only
     # print(option1)
 
@@ -47,14 +55,40 @@ def isWinner():
     return False
 
 def player1turn():
-    # Placeholder 
-    print("Player 1, escoges tu primer punto con los indices de la punta.")
-    print("Indices 
+    print("Player 1, entra los indices de tu punta.")
+    print("Indices empieza a cero. Separa los números con una coma.")
+    p1input = input("Input indices here: ")
+    p1list = p1input.split(',')
+    while p1input.count('1') != 1:
+        p1input = input("Use one comma to separate your indices. Try again:")
+    p1list[0] = int(p1list[0])
+    p1list[1] = int(p1list[1])
+    while not (p1list[0] >= 0 and p1list[0] < length and p1list[1] >= 0 and p1list[1] < length):
+        p1input = input("Make sure your inputs are within bounds. Try again:")
+        p1list = p1input.split(',')
+        p1list[0] = int(p1list[0])
+        p1list[1] = int(p1list[1])]
+    
+    tally[*p1list] = 1
 
 def player2turn():
-    # Placeholder
-    print("Player 2's turn...")
+    print("Player 2, entra los indices de tu punta.")
+    print("Indices empieza a cero. Separa los números con una coma.")
+    p2input = input("Input indices here: ")
+    p2list = p2input.split(',')
+    while p2input.count('1') != 1:
+        p2input = input("Use one comma to separate your indices. Try again:")
+    p2list[0] = int(p2list[0])
+    p2list[1] = int(p2list[1])
+    while not (p2list[0] >= 0 and p2list[0] < length and p2list[1] >= 0 and p2list[1] < length):
+        p2input = input("Make sure your inputs are within bounds. Try again:")
+        p2list = p2input.split(',')
+        p2list[0] = int(p2list[0])
+        p2list[1] = int(p2list[1])]
 
+    tally[*p2list] = 2
+
+    
 def playGame():
     while isWinner() == False:
         player1turn()
