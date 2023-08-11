@@ -1,4 +1,6 @@
-# Tic Tac Toe with any size grid
+# Tic Tac Toe
+# with any size grid
+
 
 
 def makeGrid(n):
@@ -6,18 +8,8 @@ def makeGrid(n):
         for col in range(n):
             print(0, end = " ")
         print() # prints a newline after each row is filled w/ col
-
-print(makeGrid(3))
-
-def makeGrid(n):
     player1options(n)
     player2options(n)
-    for row in range(n):
-        for col in range(n):
-            print(0, end = " ")
-        print() # prints a newline after each row is filled w/ col
-
-print(makeGrid(3))
 
 def player1options(n):
     global option1
@@ -27,6 +19,8 @@ def player1options(n):
         for col in range(n):
             ins.append(0)
         option1.append(ins)
+    # for testing only
+    # print(option1)
 
 def player2options(n):
     global option2
@@ -36,6 +30,39 @@ def player2options(n):
         for col in range(n):
             ins.append(0)
         option2.append(ins)
+    # for testing only
+    # print(option2)
+
+def startGame():
+    print("Welcome to Tic-Tac-Toe, pinche pendejo.")
+    print("Get three in a row and you win.")
+    print("Easy enough, huh?")
+    gridSize = int(input("Enter a number to set the dimensions of your grid:"))
+    makeGrid(gridSize)
+    #playGame()
+startGame()
+
+def isWinner():
+    # Placeholder
+    return False
+
+def player1turn():
+    # Placeholder 
+    print("Player 1, escoges tu primer punto con los indices de la punta.")
+    print("Indices 
+
+def player2turn():
+    # Placeholder
+    print("Player 2's turn...")
 
 def playGame():
-    while 
+    while isWinner() == False:
+        player1turn()
+        if isWinner():
+            print("Player 1 wins!")
+            break
+        player2turn()
+        if isWinner():
+            print("Player 2 wins!")
+            break
+
